@@ -1,0 +1,12 @@
+name : kafka-ml-stream
+
+services :
+
+  ml_apps : 
+    depends_on : 
+      - kafka
+    build : modelling
+    image : streaming_app
+  kafka : 
+    image : apache/kafka:3.7.0
+    command : bash  #bash bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
